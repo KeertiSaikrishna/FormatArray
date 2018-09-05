@@ -15,7 +15,7 @@ public class Solution {
         }
         int no_lines;
         if (arr.length <= k) {
-            System.out.println("arr length: " + arr.length + " k:" + k);
+            //System.out.println("arr length: " + arr.length + " k:" + k);
             no_lines = 3;
             k = arr.length;
         } else
