@@ -9,9 +9,13 @@ public class Solution {
         }
         String biggest_element = Integer.toString(max);
         int max_length = biggest_element.length();
-        int no_rows = max_length / k == 0 ? (max_length / k) : (max_length / k + 1);
+        int no_rows = arr.length / k == 0 ? (arr.length / k) : ((arr.length / k) + 1);
+        if(no_rows == 0){
+            no_rows = 1;
+        }
         int no_lines;
-        if (max_length <= k) {
+        if (arr.length <= k) {
+            System.out.println("arr length: " + arr.length + " k:" + k);
             no_lines = 3;
             k = arr.length;
         } else
