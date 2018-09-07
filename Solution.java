@@ -2,30 +2,29 @@ import javax.sound.midi.Soundbank;
 
 public class Solution {
     public void solution(int[] arr, int k) {
-        int max = 0;
+        int maxNumber = 0;
         for (int i : arr) {
-            if (i > max)
-                max = i;
+            if (i > maxNumber)
+                maxNumber = i;
         }
-        String biggest_element = Integer.toString(max);
-        int max_length = biggest_element.length();
-        int no_rows = arr.length / k == 0 ? (arr.length / k) : ((arr.length / k) + 1);
-        if(no_rows == 0){
-            no_rows = 1;
+        String biggest_element = Integer.toString(maxNumber);
+        int maxLengthOfNumber = biggest_element.length();
+        int noOfRows = arr.length / k == 0 ? (arr.length / k) : ((arr.length / k) + 1);
+        if (noOfRows == 0) {
+            noOfRows = 1;
         }
-        int no_lines;
+        int noOfLines;
         if (arr.length <= k) {
-            //System.out.println("arr length: " + arr.length + " k:" + k);
-            no_lines = 3;
+            noOfLines = 3;
             k = arr.length;
         } else
-            no_lines = (no_rows * 2) + 1;
-        int curr_index = 0;
-        for (int l = 1; l <= (no_lines); l++) {
+            noOfLines = (noOfRows * 2) + 1;
+        int currentIndex = 0;
+        for (int l = 1; l <= (noOfLines); l++) {
             if ((l % 2) == 1) {
                 for (int i = 0; i < k; i++) {
                     System.out.print("+");
-                    for (int j = 0; j < max_length; j++) {
+                    for (int j = 0; j < maxLengthOfNumber; j++) {
                         System.out.print("-");
                     }
                 }
@@ -33,36 +32,33 @@ public class Solution {
             } else {
                 for (int i = 0; i < k; i++) {
                     System.out.print("|");
-                    String exp = Integer.toString(arr[curr_index]);
+                    String exp = Integer.toString(arr[currentIndex]);
                     int length = exp.length();
-                    int gap = max_length - length;
+                    int gap = maxLengthOfNumber - length;
                     for (int j = 0; j < gap; j++) {
                         System.out.print(" ");
                     }
-                    System.out.print(arr[curr_index++]);
-                    if(curr_index == arr.length){
-                        //System.out.print("|\n");
-                        //System.out.print("+");
+                    System.out.print(arr[currentIndex++]);
+                    if (currentIndex == arr.length) {
                         break;
                     }
                 }
                 System.out.print("|\n");
-                if(curr_index == arr.length){
-                    if( arr.length % k != 0) {
+                if (currentIndex == arr.length) {
+                    if (arr.length % k != 0) {
                         int noEle_lastRow = arr.length % k;
                         for (int i = 0; i < noEle_lastRow; i++) {
                             System.out.print("+");
-                            for (int j = 0; j < max_length; j++) {
+                            for (int j = 0; j < maxLengthOfNumber; j++) {
                                 System.out.print("-");
                             }
                         }
                         System.out.print("+");
                         break;
-                    }
-                    else {
+                    } else {
                         for (int i = 0; i < k; i++) {
                             System.out.print("+");
-                            for (int j = 0; j < max_length; j++) {
+                            for (int j = 0; j < maxLengthOfNumber; j++) {
                                 System.out.print("-");
                             }
                         }
